@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cyber-primary: #00d4f5;
+  --cyber-secondary: #0090a8;
+  --cyber-glow: rgba(0, 212, 245, 0.4);
+  --neural-bg: #040d1a;
+  --neural-card: rgba(7, 21, 40, 0.8);
+  --neural-border: rgba(0, 212, 245, 0.15);
+  --neural-border-hover: rgba(0, 212, 245, 0.4);
+  --text-primary: #e8f4f8;
+  --text-secondary: #8baab8;
+  --text-muted: #4a6070;
+  --risk-low: #00f5a0;
+  --risk-medium: #f5a623;
+  --risk-high: #f53d3d;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--neural-bg);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #071528; }
+::-webkit-scrollbar-thumb { background: rgba(0,212,245,0.3); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0,212,245,0.6); }
+
+/* Glass card */
+.glass {
+  background: rgba(7, 21, 40, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--neural-border);
+}
+
+.glass-hover {
+  transition: all 0.3s ease;
+}
+
+.glass-hover:hover {
+  border-color: var(--neural-border-hover);
+  box-shadow: 0 0 30px rgba(0,212,245,0.1);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #00d4f5 0%, #0090a8 50%, #00f5a0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Neon glow button */
+.btn-cyber {
+  background: linear-gradient(135deg, #00d4f5, #0090a8);
+  color: #040d1a;
+  font-weight: 600;
+  font-family: 'Space Grotesk', sans-serif;
+  border-radius: 8px;
+  padding: 12px 28px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-cyber::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-cyber:hover::before { left: 100%; }
+.btn-cyber:hover { box-shadow: 0 0 30px rgba(0,212,245,0.5); transform: translateY(-1px); }
+
+/* Ghost button */
+.btn-ghost {
+  background: transparent;
+  color: var(--cyber-primary);
+  border: 1px solid var(--neural-border-hover);
+  font-weight: 500;
+  font-family: 'Space Grotesk', sans-serif;
+  border-radius: 8px;
+  padding: 12px 28px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-ghost:hover {
+  background: rgba(0,212,245,0.08);
+  box-shadow: 0 0 20px rgba(0,212,245,0.2);
+}
+
+/* Animated border */
+.animated-border {
+  position: relative;
+}
+
+.animated-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #00d4f5, transparent, #00f5a0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: borderRotate 4s linear infinite;
+}
+
+@keyframes borderRotate {
+  0% { background: linear-gradient(0deg, #00d4f5, transparent, #00f5a0); }
+  100% { background: linear-gradient(360deg, #00d4f5, transparent, #00f5a0); }
+}
+
+/* Neural grid background */
+.neural-grid-bg {
+  background-color: var(--neural-bg);
+  background-image: radial-gradient(circle at 1px 1px, rgba(0,212,245,0.06) 1px, transparent 0);
+  background-size: 40px 40px;
+}
+
+/* Risk colors */
+.risk-low { color: var(--risk-low); }
+.risk-medium { color: var(--risk-medium); }
+.risk-high { color: var(--risk-high); }
+
+.risk-low-bg { background: rgba(0, 245, 160, 0.1); border-color: rgba(0, 245, 160, 0.3); }
+.risk-medium-bg { background: rgba(245, 166, 35, 0.1); border-color: rgba(245, 166, 35, 0.3); }
+.risk-high-bg { background: rgba(245, 61, 61, 0.1); border-color: rgba(245, 61, 61, 0.3); }
+
+/* Pulse ring */
+.pulse-ring {
+  position: relative;
+}
+.pulse-ring::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid var(--cyber-primary);
+  animation: pulseRing 2s ease-out infinite;
+}
+
+@keyframes pulseRing {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+/* Input styling */
+.input-cyber {
+  background: rgba(7, 21, 40, 0.8);
+  border: 1px solid var(--neural-border);
+  color: var(--text-primary);
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.2s ease;
+  width: 100%;
+  outline: none;
+}
+
+.input-cyber:focus {
+  border-color: var(--cyber-primary);
+  box-shadow: 0 0 0 3px rgba(0,212,245,0.1);
+}
+
+.input-cyber::placeholder { color: var(--text-muted); }
+
+/* Select styling */
+select.input-cyber option {
+  background: #071528;
+  color: var(--text-primary);
+}
+
+/* Loader */
+.neural-loader {
+  width: 40px; height: 40px;
+  border: 3px solid rgba(0,212,245,0.1);
+  border-top: 3px solid var(--cyber-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Sidebar */
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.sidebar-link:hover {
+  background: rgba(0,212,245,0.08);
+  color: var(--cyber-primary);
+}
+
+.sidebar-link.active {
+  background: rgba(0,212,245,0.12);
+  color: var(--cyber-primary);
+  border-left: 2px solid var(--cyber-primary);
+}
+
+/* Skeleton loader */
+.skeleton {
+  background: linear-gradient(90deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.07) 50%, rgba(255,255,255,0.03) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 6px;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}

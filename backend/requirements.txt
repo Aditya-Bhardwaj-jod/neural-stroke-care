@@ -1,0 +1,12 @@
+flask
+flask-cors
+flask-jwt-extended
+flask-sqlalchemy
+sqlalchemy
+werkzeug
+joblib
+numpy
+pandas
+scikit-learn
+imbalanced-learn
+python-dotenv
