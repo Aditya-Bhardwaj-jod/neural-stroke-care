@@ -9,7 +9,7 @@
 ![ML](https://img.shields.io/badge/ML-Scikit--Learn-F7931E?style=for-the-badge&logo=scikitlearn)
 
 ## 🌐 Live Demo
-👉 **Coming Soon — Deploying on Vercel + Render**
+👉 👉 **https://neural-stroke-care-delta.vercel.app**
 
 ---
 
@@ -235,8 +235,8 @@ Visit: **http://localhost:5173**
 
 | Service | Platform | URL |
 |---------|----------|-----|
-| Frontend | Vercel | Coming Soon |
-| Backend | Render | Coming Soon |
+| Frontend | Vercel | 👉 **https://neural-stroke-care-delta.vercel.app** |
+| Backend | Render | https://********.onrender.com |
 | Database | SQLite → PostgreSQL | Cloud Ready |
 
 ---
